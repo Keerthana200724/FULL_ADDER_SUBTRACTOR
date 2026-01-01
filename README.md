@@ -43,7 +43,7 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
-
+```
 module exp4(a,b,c,sum,carry);
 
 input a,b,c;
@@ -55,13 +55,25 @@ assign sum =(a^b^c);
 assign carry =(a&b)|(b&c)|(c&a);
 
 endmodule
-
+```
+```
+module exp4(a,b,bin,difference,borrow); 
+input a,b,bin; 
+output difference,borrow; 
+assign difference= ( (a ^ b)^bin); 
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b )))); 
+endmodule
+```
 **RTL Schematic**
 <img width="1920" height="1080" alt="Screenshot 2025-11-19 112457" src="https://github.com/user-attachments/assets/338cc8cd-8519-4747-af01-5669b2033c57" />
+<img width="1036" height="552" alt="Screenshot 2026-01-01 222849" src="https://github.com/user-attachments/assets/90c5c462-338f-4113-920d-37e1294778e2" />
+
 
 
 **Output Timing Waveform**
 <img width="1920" height="1080" alt="Screenshot 2025-11-19 112651" src="https://github.com/user-attachments/assets/2554d642-e84a-4f36-a230-7b3f858249bd" />
+<img width="1037" height="583" alt="Screenshot 2026-01-01 223107" src="https://github.com/user-attachments/assets/80c3d3aa-24cf-403b-8399-e39630a0220b" />
+
 
 
 **Result:**
